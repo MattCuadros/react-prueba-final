@@ -73,7 +73,7 @@ const App=()=>{
     <div>
       <header className='container-fluid text-light border border-light shadow p-3 mb-5 bg-body-dark-100 rounded d-flex justify-content-between align-items-center align-content-center'>
         <div className='d-flex justify-content-center align-items-center align-content-center'>
-          <a href="#"><img src="./src/assets/img/Imagen1.png" alt="" width="100" className="d-inline-block m-2 " /></a>
+          <a href="#"><img src="./public/Imagen1.png" alt="" width="100" className="d-inline-block m-2 " /></a>
           <h1>Personajes de Harry Potter</h1>
         </div>
         <div>
@@ -95,7 +95,7 @@ const App=()=>{
                 return (
 
                     <div className="card m-2 grid-gallery" width="200" height="200" key={item.id} >
-                        <img  src={item.image===""?"./src/assets/img/sinRetrato.png":item.image} className="card-img border border-secondary w-50" alt={`Imagen de ${item.name}`} />
+                        <img  src={item.image===""?"./public/sinRetrato.png":item.image} className="card-img border border-secondary w-50" alt={`Imagen de ${item.name}`} />
                         <div className="card-body">
                             <h3 className="card-title text-center text-dark">{item.name}</h3>
                             <p className="card-text text-center">{item.house}</p>
