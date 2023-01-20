@@ -62,13 +62,6 @@ const App=()=>{
   }
 
 
-
-
-
-
-
-
-
   return(
     <div>
       <header className='container-fluid text-light border border-light shadow p-3 mb-5 bg-body-dark-100 rounded d-flex justify-content-between align-items-center align-content-center'>
