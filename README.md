@@ -2,7 +2,7 @@
 
 ---
 
-Link al Video <a href="https://share.vidyard.com/watch/gocrMG7hkH3kU6VWmszDZY?" target="_blank">Link</a>
+Link al Video <a href="https://share.vidyard.com/watch/9PL4bT9VLeUefuUTkBKJeP?" target="_blank">Link</a>
 
 In this Challenge, i used Vite and React for make a Landing Page that makes a API REST petition.
 
