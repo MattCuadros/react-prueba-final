@@ -1,5 +1,5 @@
 import "../assets/css/miapi.css";
-import sinRetrato from "./public/sinRetrato.png";
+import sinRetrato from "../public/sinRetrato.png";
 
 
 const MiApi = ({filteredArray}) => {
