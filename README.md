@@ -1,13 +1,11 @@
-># Challenge #19 - **Vite & React DataBase - CRUD in React**
+># Challenge #20  - **Vite & React - API Rest**
 
 ---
 
 Link al Video <a href="https://share.vidyard.com/watch/9PKozwBQXUcKfu1JHcaubk?" target="_blank">Link</a>
 
-In this Challenge, i used Vite and React for make a Collaborators Database, using CRUD methodology in REACT.
-The Form makes two principal validations:
-- Empty username input or value is a Number.
-- Empty e-mail input.
+In this Challenge, i used Vite and React for make a Landing Page that makes a API REST petition.
+
 
 
 
