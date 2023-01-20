@@ -1,4 +1,4 @@
-import img1 from "./src/assets/img/Imagen1.png";
+import img1 from "./public/Imagen1.png";
 
 const Header=({handleSearch, handleSorting})=>{
     return(
