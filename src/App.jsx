@@ -2,15 +2,11 @@ import { useState, useEffect } from 'react'
 import "../src/assets/css/miapi.css";
 
 
-
-/* import MiApi from './components/MiApi' */
-
 const App=()=>{
   
   const [state, setState] = useState([]);
   const [search, setSearch]=useState("");
   const [filter, setFilter] = useState([]);
-  const [sort, setSort]=useState([...state]);
   
   const getData = async () => {
       const response = await fetch("https://hp-api.onrender.com/api/characters");
