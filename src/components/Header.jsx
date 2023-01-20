@@ -1,8 +1,10 @@
+import img1 from "./src/assets/img/Imagen1.png";
+
 const Header=({handleSearch, handleSorting})=>{
     return(
         <header className='container-fluid text-light border border-light shadow p-3 mb-5 bg-body-dark-100 rounded d-flex justify-content-between align-items-center align-content-center'>
             <div className='d-flex justify-content-center align-items-center align-content-center'>
-                <a href="#"><img src="./src/assets/img/Imagen1.png" alt="" width="100" className="d-inline-block m-2 " /></a>
+                <a href="#"><img src={img1} alt="" width="100" className="d-inline-block m-2 " /></a>
                 <h1>Personajes de Harry Potter</h1>
             </div>
             <div>

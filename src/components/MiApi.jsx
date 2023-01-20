@@ -1,4 +1,5 @@
 import "../assets/css/miapi.css";
+import sinRetrato from "./src/assets/img/sinRetrato.png";
 
 
 const MiApi = ({filteredArray}) => {
@@ -9,7 +10,7 @@ const MiApi = ({filteredArray}) => {
             return (
 
                 <div className="card m-2 grid-gallery" width="200" height="200" key={item.id} >
-                    <img src={item.image === "" ? "./src/assets/img/sinRetrato.png" : item.image} className="card-img border border-secondary w-50" alt={`Imagen de ${item.name}`} />
+                    <img src={item.image === "" ? {sinRetrato} : item.image} className="card-img border border-secondary w-50" alt={`Imagen de ${item.name}`} />
                     <div className="card-body">
                         <h3 className="card-title text-center text-dark">{item.name}</h3>
                         <p className="card-text text-center">{item.house}</p>
