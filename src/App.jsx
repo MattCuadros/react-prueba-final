@@ -1,28 +1,51 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import "../src/assets/css/miapi.css";
 
-import MiApi from './components/MiApi'
+
+
+/* import MiApi from './components/MiApi' */
 
 const App=()=>{
-
+  
+  const [state, setState] = useState([]);
   const [search, setSearch]=useState("");
-  const [sort, setSort]=useState("");
+  const [filter, setFilter] = useState([]);
+  const [sort, setSort]=useState([...state]);
+  
+  const getData = async () => {
+      const response = await fetch("https://hp-api.onrender.com/api/characters");
+      const data = await response.json();
+      setState(data);
+  };
+  
+  useEffect(() => {
+      getData();
+  }, []);
+
+  
   
   const handleSearch=(e)=>{
+    if(e.target.value===""){
+      setSearch(e.target.value);
+      setSort([...state]);
+      return;
+    }
     setSearch(e.target.value);
+    setFilter([...state.filter((item)=>{return(item.name.toLowerCase().includes(search.toLowerCase()))})])
   }
 
   const handleSorting=(e)=>{
     if(e.target.value==="1"){
-      setSort([...filteredArray.sort(AtoZ)])
+      setSort([...filter.sort(AtoZ)])
       return;
     } else if (e.target.value==="2"){
-      setSort([...filteredArray.sort(ZtoA)])
+      setSort([...filter.sort(ZtoA)])
       return;
     } else if(e.target.value==="3"){
-      setSort([...filteredArray.sort(age)])
+      setSort([...filter.sort(age)])
       return;
     } else if(e.target.value==="4"){
-      setSort([...filteredArray.sort(age).reverse()])
+      setSort([...filter.sort(age).reverse()])
       return;
     }
   }
@@ -37,6 +60,14 @@ const App=()=>{
     }
 
   }
+
+
+
+
+
+
+
+
 
   return(
     <div>
@@ -59,7 +90,29 @@ const App=()=>{
 
       </header>
       
-      <MiApi search={search} sort={sort}/>
+      <div className="text-dark container-fluid"><ul>
+            {state.filter((item)=>{return(item.name.toLowerCase().includes(search.toLowerCase()))}).map((item) => {
+                return (
+
+                    <div className="card m-2 grid-gallery" width="200" height="200" key={item.id} >
+                        <img  src={item.image===""?"./src/assets/img/sinRetrato.png":item.image} className="card-img border border-secondary w-50" alt={`Imagen de ${item.name}`} />
+                        <div className="card-body">
+                            <h3 className="card-title text-center text-dark">{item.name}</h3>
+                            <p className="card-text text-center">{item.house}</p>
+                        </div>
+                        <ul className="list-group list-group-flush" >
+                            <li className="list-group-item">Fecha de Nacimiento: <span>{item.dateOfBirth===""?"Desconocida":item.dateOfBirth}</span></li>
+                            <li className="list-group-item">Sexo: <span>{item.gender==="male"?"Hombre":item.gender==="female"?"Mujer":"otro"}</span></li>
+                            <li className="list-group-item">Color de Ojos: <span className="rounded-circle" style={{color:`${item.eyeColour}`}}><i className="fa-solid fa-eye"></i></span></li>
+                            <li className="list-group-item">Pureza de Sangre: <span>{(item.ancestry==="half-blood"?"Mestizo":item.ancestry==="muggleborn"?"Hijo de Muggle":item.ancestry==="pure-blood"?"Sangre Pura":item.ancestry===""?"Desconocida":"Otro")} </span></li>
+                            <li className="list-group-item">Estado: <span>{item.alive?"Vivo":"Fallecido"} </span></li>
+                        </ul>
+                    </div>
+                )
+            })}
+        </ul>
+
+        </div>
       <footer className='m-2 text-secondary d-flex flex-column justify-content-center align-items-center'>
         <p>Todos los derechos reservados.</p>
         <p>Matias Cuadros E.</p>

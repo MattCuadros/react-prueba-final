@@ -1,21 +1,21 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import "../assets/css/miapi.css"
+import "../assets/css/miapi.css";
 
-const MiApi = ({search, sort}) => {
+
+const MiApi = () => {
+   
+  
     const [state, setState] = useState([]);
+    const [sort, setSort]=useState(state);
+
 
 
     const getData = async () => {
         const response = await fetch("https://hp-api.onrender.com/api/characters");
         const data = await response.json();
-    console.log(data);
         setState(data);
     };
-
-    const filteredArray=state.filter((item)=>{return(item.name.toLowerCase().includes(search.toLowerCase()))})
-
-
 
 
 
@@ -26,7 +26,7 @@ const MiApi = ({search, sort}) => {
 
     return (
         <div className="text-dark container-fluid"><ul>
-            {filteredArray.map((item) => {
+            {state.map((item) => {
                 return (
 
                     <div className="card m-2 grid-gallery" width="200" height="200" key={item.id} >
